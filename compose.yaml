@@ -1,0 +1,10 @@
+services:
+  playwright:
+    image: doubledie/playwright
+    container_name: playwright-server
+    build:
+      context: .
+      platforms:
+        - "linux/amd64"
+    volumes:
+      - .:/app
