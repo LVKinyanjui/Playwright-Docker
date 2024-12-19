@@ -8,7 +8,8 @@ RUN apt update \
     && apt install -y python3-pip \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install pytest-playwright --break-system-packages \
-    && playwright install
+COPY requirements.txt .
 
-CMD ["sleep", "infinity"]
+RUN pip install -r requirements.txt --break-system-packages \
+	--no-cache-dir \
+    && playwright install
